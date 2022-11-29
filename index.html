@@ -138,7 +138,7 @@
         if(seznamUcastniku.length == 0 && nick.length > 0){
             seznamUcastniku.push(nick);
             document.getElementById("chyba").innerHTML = `
-                <div class="alert alert-success" role="alert"> Nick byl přidán</div>
+                <div class="alert alert-success" role="alert"> Soutěžící byl přidán</div>
                 `;
         } else {
             if(nick !== ""){
@@ -151,11 +151,11 @@
             if(!duplicita && nick.length > 0){
                 seznamUcastniku.push(nick);
                 document.getElementById("chyba").innerHTML = `
-                <div class="alert alert-success" role="alert"> Nick byl přidán</div>
+                <div class="alert alert-success" role="alert"> Soutěžící byl přidán</div>
                 `;
             }else{
                 document.getElementById("chyba").innerHTML = `
-                <div class="alert alert-danger" role="alert"> Nick již existuje v seznamu </div>
+                <div class="alert alert-danger" role="alert"> Soutěžící již existuje v seznamu </div>
                 `;
             }
         }
@@ -199,17 +199,18 @@
     function resetuj (){
         seznamUcastniku = [];
         vypis();
-        vynulujHodnoty();
+        vynulováníHodnot("Data byla resetována");
     }
 
     function smazPosleního(){
         seznamUcastniku.pop()
         vypis();
-        vynulujHodnoty();
+        vynulováníHodnot("Poslední člen byl odebrán")
     }
 
-    function vynulujHodnoty(){
-        document.getElementById("chyba").innerHTML = ``;
+    function vynulováníHodnot(hlaska){
+        document.getElementById("chyba").innerHTML = `
+                <div class="alert alert-warning" role="alert">`+ hlaska +`</div>`;
         document.getElementById("vyherce").innerHTML = ``;
     }
 </script>
