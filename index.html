@@ -199,11 +199,18 @@
     function resetuj (){
         seznamUcastniku = [];
         vypis();
+        vynulujHodnoty();
     }
 
     function smazPosleního(){
         seznamUcastniku.pop()
         vypis();
+        vynulujHodnoty();
+    }
+
+    function vynulujHodnoty(){
+        document.getElementById("chyba").innerHTML = ``;
+        document.getElementById("vyherce").innerHTML = ``;
     }
 </script>
 </body>
